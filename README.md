@@ -11,6 +11,28 @@ Bài tập 5 nâng cấp hai bài tập ở Bài 4: thay vì chỉ xử lý trê
 | **5.1** | Bài 4.1 | Form đăng nhập, kiểm tra tài khoản thật trong CSDL | `BaiTap5_1_LoginForm` | `ql_dangnhap` |
 | **5.2** | Bài 4.2 | Form đăng ký học viên, lưu và quản lý danh sách | `BaiTap5_2_DangKyHocVien` | `ql_hocvien` |
 
+## Cấu trúc thư mục
+
+```
+.
+├── README.md
+├── 5.1/                              # Bài 5.1 – Login Form
+│   ├── BaiTap5_1_LoginForm.csproj
+│   ├── Database.cs
+│   ├── database.sql
+│   └── docs/                         # Ảnh minh họa bài 5.1
+└── 5.2/                              # Bài 5.2 – Đăng ký học viên
+    ├── BaiTap5_2_DangKyHocVien.csproj
+    ├── Database.cs
+    ├── database.sql
+    └── docs/                         # Ảnh minh họa bài 5.2
+```
+
+| Bài | Thư mục | Dự án | Chuỗi kết nối | Script CSDL |
+|-----|---------|-------|---------------|-------------|
+| 5.1 | [5.1/](5.1/) | [BaiTap5_1_LoginForm.csproj](5.1/BaiTap5_1_LoginForm.csproj) | [Database.cs](5.1/Database.cs) | [database.sql](5.1/database.sql) |
+| 5.2 | [5.2/](5.2/) | [BaiTap5_2_DangKyHocVien.csproj](5.2/BaiTap5_2_DangKyHocVien.csproj) | [Database.cs](5.2/Database.cs) | [database.sql](5.2/database.sql) |
+
 **Đặc điểm chung của cả hai bài**
 
 - Công nghệ: C# WinForms (.NET 10), MySQL (XAMPP), thư viện `MySqlConnector`.
@@ -42,19 +64,19 @@ Bài 4.1 chỉ kiểm tra ô trống rồi báo "Đăng nhập thành công". B�
 
 **1. Giao diện bình thường** – nhập tài khoản, tick "Hiện mật khẩu" để xem mật khẩu.
 
-![Giao diện chính](docs/bai5_1_main.jpg)
+![Giao diện chính](5.1/docs/bai5_1_main.jpg)
 
 **2. Nhập lỗi** – để trống tên đăng nhập rồi bấm Đăng nhập, `ErrorProvider` báo lỗi cạnh ô nhập.
 
-![Bắt lỗi nhập liệu](docs/bai5_1_error.jpg)
+![Bắt lỗi nhập liệu](5.1/docs/bai5_1_error.jpg)
 
 **3. Thêm tài khoản thành công** – bấm "Tạo tài khoản", tài khoản mới được lưu vào bảng `TaiKhoan` trong MySQL.
 
-![Tạo tài khoản](docs/bai5_1_add.jpg)
+![Tạo tài khoản](5.1/docs/bai5_1_add.jpg)
 
 **4. Đăng nhập thành công** – mật khẩu được kiểm tra với dữ liệu trong CSDL.
 
-![Đăng nhập thành công](docs/bai5_1_login.jpg)
+![Đăng nhập thành công](5.1/docs/bai5_1_login.jpg)
 
 ---
 
@@ -82,15 +104,15 @@ Bài 4.2 chỉ in thông tin đăng ký ra `MessageBox`, danh sách khóa học 
 
 **1. Giao diện bình thường** – danh sách học viên đọc từ CSDL hiển thị trên DataGridView.
 
-![Giao diện chính](docs/bai5_2_main.jpg)
+![Giao diện chính](5.2/docs/bai5_2_main.jpg)
 
 **2. Nhập lỗi** – họ tên có ký tự đặc biệt, số điện thoại chưa đủ, `ErrorProvider` báo lỗi cạnh từng ô.
 
-![Bắt lỗi nhập liệu](docs/bai5_2_error.jpg)
+![Bắt lỗi nhập liệu](5.2/docs/bai5_2_error.jpg)
 
 **3. Thêm học viên thành công** – bấm "Đăng ký", thông tin được tổng hợp lên `MessageBox` và lưu vào bảng `HocVien`.
 
-![Đăng ký thành công](docs/bai5_2_add.jpg)
+![Đăng ký thành công](5.2/docs/bai5_2_add.jpg)
 
 ---
 
@@ -98,10 +120,10 @@ Bài 4.2 chỉ in thông tin đăng ký ra `MessageBox`, danh sách khóa học 
 
 1. Cài XAMPP, mở **XAMPP Control Panel** → **Start MySQL** (mặc định user `root`, không mật khẩu, cổng 3306).
 2. Mở file dự án bằng Visual Studio 2022+ (.NET 10):
-   - Bài 5.1: `BaiTap5_1_LoginForm.csproj`
-   - Bài 5.2: `BaiTap5_2_DangKyHocVien.csproj`
+   - Bài 5.1: [5.1/BaiTap5_1_LoginForm.csproj](5.1/BaiTap5_1_LoginForm.csproj)
+   - Bài 5.2: [5.2/BaiTap5_2_DangKyHocVien.csproj](5.2/BaiTap5_2_DangKyHocVien.csproj)
 
    NuGet sẽ tự tải gói `MySqlConnector`.
-3. Nhấn **F5**. (Tùy chọn: chạy `database.sql` của từng bài trong phpMyAdmin để tạo CSDL thủ công.)
+3. Nhấn **F5**. (Tùy chọn: chạy [5.1/database.sql](5.1/database.sql) và [5.2/database.sql](5.2/database.sql) trong phpMyAdmin để tạo CSDL thủ công.)
 
-> Nếu MySQL có đặt mật khẩu, sửa chuỗi kết nối trong `Database.cs` của từng dự án.
+> Nếu MySQL có đặt mật khẩu, sửa chuỗi kết nối trong [5.1/Database.cs](5.1/Database.cs) và [5.2/Database.cs](5.2/Database.cs).
